@@ -1,0 +1,19 @@
+{
+  "name": "service-description-sp",
+  "version": "1.0.0",
+  "description": "Component for item images and description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byteminds/service-itemDescription-sp.git"
+  },
+  "author": "sparksparker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byteminds/service-itemDescription-sp/issues"
+  },
+  "homepage": "https://github.com/byteminds/service-itemDescription-sp#readme"
+}
