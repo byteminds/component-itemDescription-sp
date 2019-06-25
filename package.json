@@ -4,7 +4,7 @@
   "description": "Component for item images and description",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon server/index.js",
     "seed": "node database/index.js",
     "build": "webpack -d --watch"
@@ -23,8 +23,9 @@
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6",
+    "@shelf/jest-mongodb": "^1.0.1",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
     "webpack": "^4.35.0",
     "webpack-cli": "^3.3.4"
   },
