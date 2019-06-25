@@ -2,14 +2,12 @@
 const mongoose = require('mongoose');
 
 describe('insert', () => {
-  let connection;
   let db;
 
   beforeAll(async () => {
     connection = await mongoose.connect('mongodb://localhost/testingUsers', {
       useNewUrlParser: true,
     });
-    // db = await connection.db(global.testingUsers);
     db = await mongoose.connection;
   });
 

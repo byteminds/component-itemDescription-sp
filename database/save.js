@@ -1,5 +1,5 @@
 const { Description } = require('./schema');
-const { randomInclusive, arrLenByIndex, objLenByIndex, randomPriceWithDecimals } = require('../helpers');
+const { arrLenByIndex, objLenByIndex, randomPriceWithDecimals } = require('../helpers');
 const _ = require('lodash');
 
 const fakeProductName = () => {
@@ -149,7 +149,7 @@ const fakeOtherCondition = () => {
 
 const fakeOtherSellers = () => `(${_.random(1, 30)}) from ${randomPriceWithDecimals(40, 800)}`;
 
-const save = () => {
+const saveSchema = () => {
   let id = 1;
 
   while(id < 101) {
@@ -171,14 +171,10 @@ const save = () => {
       otherCondition: fakeOtherCondition(),
       otherSellers: fakeOtherSellers(),
     });
-
-    allDescription
-      .save()
-      .then( () => console.log('SUCCESS: save to MongoDB') )
-      .catch( err => console.log('ERROR: save to MongoDB', err));
+    return allDescription;
   }
 };
 
 module.exports = {
-  save,
+  saveSchema,
 };
