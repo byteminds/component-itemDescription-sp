@@ -1,19 +1,22 @@
-const { MongoClient } = require('mongodb');
+// const { MongoClient } = require('mongodb');
+const mongoose = require('mongoose');
 
 describe('insert', () => {
   let connection;
   let db;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect('mongodb://localhost/testingUsers', {
+    connection = await mongoose.connect('mongodb://localhost/testingUsers', {
       useNewUrlParser: true,
     });
-    db = await connection.db(global.testingUsers);
+    // db = await connection.db(global.testingUsers);
+    db = await mongoose.connection;
   });
 
-  afterAll(async () => {
-    await connection.close();
+  afterAll(async done => {
+    await db.dropDatabase();
     await db.close();
+    done();
   });
 
   it('should insert a doc into collection', async () => {
