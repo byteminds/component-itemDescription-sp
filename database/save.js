@@ -147,7 +147,7 @@ const fakeOtherCondition = () => {
   return data[_.random(arrLenByIndex(data))];
 }
 
-const fakeOtherSellers = () => `(${_.random(1, 30)}) from ${randomPriceWithDecimals(40, 800)} ${fakeIsPrime()}`;
+const fakeOtherSellers = () => `(${_.random(1, 30)}) from ${randomPriceWithDecimals(40, 800)}`;
 
 const save = () => {
   let id = 1;
@@ -174,7 +174,7 @@ const save = () => {
 
     allDescription
       .save()
-      .then( () => console.log('SUCCESS: save to MongoDB'))
+      .then( () => console.log('SUCCESS: save to MongoDB') )
       .catch( err => console.log('ERROR: save to MongoDB', err));
   }
 };
