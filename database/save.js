@@ -150,34 +150,36 @@ const fakeOtherCondition = () => {
 
 const fakeOtherSellers = () => `(${_.random(1, 30)}) from ${randomPriceWithDecimals(40, 800)}`;
 
-const saveSchema = () => {
+const saveSchema = async () => {
   let id = 1;
 
-  while(id < 101) {
+  let schema = async () => {
+    while(id < 101) {
 
-    let allDescription = new Description({
-      id: id++,
-      productName:fakeProductName(),
-      images: {
-        mainImages: fakeMainImages(),
-        stars: fakeStars(),
-        prime: fakePrime,
-      },
-      description: fakeDescription(),
-      seller: fakeSeller(),
-      numOfReviews: fakeNumOfReviews(),
-      numOfQAndA: fakeNumOfQAndA(),
-      price: fakePrice(),
-      isPrime: fakeIsPrime(),
-      otherCondition: fakeOtherCondition(),
-      otherSellers: fakeOtherSellers(),
-    });
+      let allDescription = new Description({
+        id: id++,
+        productName:fakeProductName(),
+        images: {
+          mainImages: fakeMainImages(),
+          stars: fakeStars(),
+          prime: fakePrime,
+        },
+        description: fakeDescription(),
+        seller: fakeSeller(),
+        numOfReviews: fakeNumOfReviews(),
+        numOfQAndA: fakeNumOfQAndA(),
+        price: fakePrice(),
+        isPrime: fakeIsPrime(),
+        otherCondition: fakeOtherCondition(),
+        otherSellers: fakeOtherSellers(),
+      });
 
-    allDescription
-    .save()
+      allDescription.save()
+    }
+  }
+  await schema()
     .then( () => console.log('SUCCESS: save to MongoDB') )
     .catch( err => console.log('ERROR: save to MongoDB', err) );
-  }
 };
 
 const allItemDescriptions = (id, callback) => {
