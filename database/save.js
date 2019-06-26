@@ -172,13 +172,17 @@ const saveSchema = () => {
       otherCondition: fakeOtherCondition(),
       otherSellers: fakeOtherSellers(),
     });
-    return allDescription;
+
+    allDescription
+    .save()
+    .then( () => console.log('SUCCESS: save to MongoDB') )
+    .catch( err => console.log('ERROR: save to MongoDB', err) );
   }
 };
 
 const allItemDescriptions = (id, callback) => {
 
-  mongoose.connect('mongodb://localhost/itemDescription', {useNewUrlParser: true});
+  mongoose.connect('mongodb://localhost/itemDescription', { useNewUrlParser: true });
 
   Description
   .aggregate()
