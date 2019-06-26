@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const { Description } = require('./schema');
 const { arrLenByIndex, objLenByIndex, randomPriceWithDecimals } = require('../helpers');
 const _ = require('lodash');
@@ -175,6 +176,21 @@ const saveSchema = () => {
   }
 };
 
+const allItemDescriptions = (id, callback) => {
+
+  mongoose.connect('mongodb://localhost/itemDescription', {useNewUrlParser: true});
+
+  Description
+  .aggregate()
+  .sample(1)
+  .exec((err, data) => {
+    return err ?
+    callback(err, null) :
+    callback(null, data);
+  });
+};
+
 module.exports = {
   saveSchema,
+  allItemDescriptions,
 };
