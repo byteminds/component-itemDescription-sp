@@ -12,6 +12,11 @@ app.use(favicon(path.join(__dirname, '../client/src', 'favicon.ico')));
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
+app.get('/', (req, res) => {
+  console.log('app get worked');
+  res.end();
+});
+
 app.get('/api/:id', (req, res) => {
   let id = req.params.id;
 
