@@ -1,29 +1,36 @@
 import React from 'react';
+import * as Styled from './styled.jsx';
 
 const MainDescription = ({ data }) => {
   return (
-    <div className='description-container'>
-      {console.log('MainD', data)}
+    <Styled.DescriptionContainer>
 
-      <div className='description'>
+      <Styled.ProductName>
         {data.productName}
-      </div>
+      </Styled.ProductName>
 
       <div className='seller'>
         by
         {' '}
-        <span className='blue-text'>
+        <Styled.BlueText>
           {data.seller}
-        </span>
+        </Styled.BlueText>
       </div>
 
-      <img className='stars' src={data.images.stars} />
 
-      <div className='reviews-and-questions'>
+      <Styled.Stars src={data.images.stars} />
+
+      {' '}
+
+      <Styled.BlueText>
         {data.numOfReviews} customer reviews |
         {' '}
         {data.numOfQAndA} answered questions
-      </div>
+      </Styled.BlueText>
+
+      <Styled.HR></Styled.HR>
+
+      {/* <br /> */}
 
       <div className='price'>
         Price:
@@ -34,7 +41,7 @@ const MainDescription = ({ data }) => {
         <span>
           {data.isPrime}
         </span> :
-        <img className='is-prime' src={data.isPrime}/>
+        <Styled.Prime src={data.isPrime}/>
         }
       </div>
 
@@ -43,29 +50,39 @@ const MainDescription = ({ data }) => {
         {' '}
         Available at a lower price from
         {' '}
-        <span className='blue-text'>
+        <Styled.BlueText>
           other sellers
-        </span>
+        </Styled.BlueText>
         , potentially without free Prime shipping.
       </div>
 
-      <div className='details'>
-        {data.description}
-      </div>
+      <ul className='details'>
+        {data.description.map(line => (
+          <li key={data.description.indexOf(line)}>
+            {line}
+          </li>
+        ))}
+      </ul>
 
-      <span className='blue-text'>
+      <Styled.BlueText>
         Compare with similar items
-      </span>
+      </Styled.BlueText>
 
-      <div className='other-prices'>
+      <br/>
+      <br/>
+
+      <Styled.BlueText>
         {data.otherCondition} {data.otherSellers}
-      </div>
+      </Styled.BlueText>
 
-      <span className='blue-text'>
+      <br/>
+      <br/>
+
+      <Styled.BlueText>
         Report incorrect product information
-      </span>
+      </Styled.BlueText>
 
-    </div>
+    </Styled.DescriptionContainer>
   );
 };
 
