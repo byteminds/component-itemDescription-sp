@@ -89,7 +89,7 @@ const fakeStars = () => {
   return Object.values(data)[_.random(objLenByIndex(data))];
 };
 
-const fakePrime = 'https://byteminds-stock-images.s3-us-west-1.amazonaws.com/prime.png';
+const fakePrime = 'https://byteminds-stock-images.s3-us-west-1.amazonaws.com/prime.jpg';
 
 const fakeDescription = () => {
 
