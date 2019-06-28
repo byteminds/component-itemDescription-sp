@@ -92,6 +92,7 @@ const fakeStars = () => {
 const fakePrime = 'https://byteminds-stock-images.s3-us-west-1.amazonaws.com/prime.png';
 
 const fakeDescription = () => {
+
   let data = [
     'Dolore stumptown viral hella, ennui messenger bag vegan salvia affogato irure consectetur esse cronut. Stumptown blog skateboard hammock woke celiac cloud bread subway tile ramps ugh single-origin coffee hot chicken velit. Austin everyday carry fugiat ipsum. Fashion axe artisan disrupt, blue bottle blog coloring book pork belly pariatur before they sold out officia swag ut snackwave tattooed.',
     'Unicorn tempor kombucha thundercats, iceland irony 8-bit scenester ipsum nisi chicharrones locavore. Affogato fugiat beard pabst, keytar sint pork belly meh iPhone et heirloom poke. Nostrud occaecat officia sunt, hashtag ullamco authentic irony. +1 schlitz retro green juice wolf chartreuse sriracha kogi kickstarter. Lumbersexual iPhone eiusmod man bun asymmetrical selfies sriracha salvia ea poutine hella voluptate chartreuse. Unicorn in 90\'s offal readymade. Hell of art party fingerstache skateboard, lyft DIY velit adipisicing mixtape photo booth YOLO dolor mollit kinfolk.',
@@ -105,7 +106,8 @@ const fakeDescription = () => {
     'Subway tile minim non, letterpress brooklyn mixtape ethical chambray tofu seitan fingerstache laboris. Keytar put a bird on it aesthetic dolor kogi gochujang tofu. Fingerstache portland locavore, paleo small batch austin letterpress flexitarian adaptogen in proident plaid cillum. Lumbersexual keffiyeh forage coloring book flannel beard succulents artisan disrupt.',
   ];
 
-  return data[_.random(arrLenByIndex(data))];
+  let splitData = data[_.random(arrLenByIndex(data))].split('.');
+  return splitData.slice(0, splitData.length - 1);
 };
 
 const fakeSeller = () => {
@@ -124,7 +126,14 @@ const fakeSeller = () => {
   return data[_.random(arrLenByIndex(data))];
 };
 
-const fakeNumOfReviews = () => _.random(500, 3000);
+const fakeNumOfReviews = () => {
+  let data = _.random(500, 3000).toString();
+
+  if (Number(data) > 999) {
+    return `${data[0]},${data.slice(1)}`
+  }
+  return data;
+}
 
 const fakeNumOfQAndA = () => _.random(20, 100);
 
