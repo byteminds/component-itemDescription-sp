@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MainDescription from './MainDescription.jsx';
 import MainPicture from './MainPicture.jsx';
+import * as Styled from './styled.jsx';
 const axios = require('axios');
 
 class Main extends Component {
@@ -28,11 +29,10 @@ class Main extends Component {
     }
 
     return (
-      <div>
-        {console.log('Main', this.state.item)}
-        <MainDescription data={this.state.item}/>
+      <Styled.Container>
         <MainPicture data={this.state.item} />
-      </div>
+        <MainDescription data={this.state.item}/>
+      </Styled.Container>
     );
   }
 }
