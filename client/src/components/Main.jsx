@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MainDescription from './MainDescription.jsx';
 import MainPicture from './MainPicture.jsx';
 import * as Styled from './styled.jsx';
+import amazonFont from '../../dist/fonts/AmazonEmber_Rg.ttf';
 const axios = require('axios');
 
 class Main extends Component {
@@ -21,18 +22,19 @@ class Main extends Component {
       }))
       .catch( err => console.log('ERROR: axios.get /api/:id', err) )
   }
-
+  
   render() {
-
     if (!this.state.isLoaded) {
       return <div>Loading ..</div>
     }
-
     return (
-      <Styled.Container>
-        <MainPicture data={this.state.item} />
-        <MainDescription data={this.state.item}/>
-      </Styled.Container>
+      <div style={{ fontFamily: amazonFont }}>
+        <Styled.GlobalStyle />
+        <Styled.Container>
+          <MainPicture data={this.state.item} />
+          <MainDescription data={this.state.item} />
+        </Styled.Container>
+      </div>
     );
   }
 }

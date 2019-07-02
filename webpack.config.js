@@ -18,6 +18,17 @@ module.exports = {
         query: {
           presets: ['@babel/preset-env', '@babel/preset-react']
         }
+      },
+      {
+        test: /\.ttf$/,
+        use: [
+          {
+            loader: 'ttf-loader',
+            options: {
+              name: './font/[hash].[ext]',
+            },
+          },
+        ]
       }
     ]
   }

@@ -80,8 +80,8 @@ const fakeMainImages = () => {
 
 const fakeStars = () => {
   let data = {
-    '3.5 stars': 'https://byteminds-stock-images.s3-us-west-1.amazonaws.com/3.5stars.png',
-    '4 stars': 'https://byteminds-stock-images.s3-us-west-1.amazonaws.com/4stars.jpeg',
+    // '3.5 stars': 'https://byteminds-stock-images.s3-us-west-1.amazonaws.com/3.5stars.png',
+    // '4 stars': 'https://byteminds-stock-images.s3-us-west-1.amazonaws.com/Screen+Shot+2019-07-02+at+11.41.05+AM.png',
     '4.5 stars': 'https://byteminds-stock-images.s3-us-west-1.amazonaws.com/4.5stars.svg',
     '5 stars': 'https://byteminds-stock-images.s3-us-west-1.amazonaws.com/5stars.png',
   };
