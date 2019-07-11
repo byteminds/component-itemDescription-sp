@@ -4,6 +4,7 @@ import MainPicture from './MainPicture.jsx';
 import * as Styled from './styled.jsx';
 import amazonFont from '../../dist/fonts/AmazonEmber_Rg.ttf';
 const axios = require('axios');
+const currentId = window.location.href.split('/').splice(-2, 1);
 
 class Main extends Component {
   constructor(props) {
@@ -12,17 +13,22 @@ class Main extends Component {
       isLoaded: false,
       item: [],
     };
+    this.getData = this.getData.bind(this);
   }
 
   componentDidMount() {
-    axios.get('/api/:id')
+    this.getData(currentId);
+  }
+
+  getData(id) {
+    axios.get(`/api/${id}`)
       .then(res => this.setState({
         isLoaded: true,
         item: res.data[0],
       }))
       .catch( err => console.log('ERROR: axios.get /api/:id', err) )
   }
-  
+
   render() {
     if (!this.state.isLoaded) {
       return <div>Loading ..</div>

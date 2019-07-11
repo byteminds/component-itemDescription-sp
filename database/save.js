@@ -196,8 +196,7 @@ const allItemDescriptions = (id, callback) => {
   mongoose.connect('mongodb://localhost/itemDescription', { useNewUrlParser: true });
 
   Description
-  .aggregate()
-  .sample(1)
+  .find( { id: id } )
   .exec((err, data) => {
     return err ?
     callback(err, null) :

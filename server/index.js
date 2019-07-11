@@ -10,12 +10,9 @@ app.use(bodyParser.json());
 
 app.use(favicon(path.join(__dirname, '../client/src', 'favicon.ico')));
 
-app.use(express.static(path.join(__dirname, '../client/dist')));
+app.use('/:id', express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/', (req, res) => {
-  console.log('app get worked');
-  res.end();
-});
+app.use('/product/:id', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/api/:id', (req, res) => {
   let id = req.params.id;
@@ -26,6 +23,7 @@ app.get('/api/:id', (req, res) => {
     res.send(data);
   });
 });
+
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
