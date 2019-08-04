@@ -8,7 +8,8 @@ export const GlobalStyle = createGlobalStyle`
 
 export const DescriptionContainer = styled.div`
   margin-left: 4%;
-  margin-right: 270px;
+  /* margin-right: 270px; */
+  margin-right: 15%;
 `;
 
 export const ProductName = styled.div`

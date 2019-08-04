@@ -4,5 +4,5 @@ import Main from './components/Main.jsx';
 
 render(
   <Main />,
-  document.getElementById('app')
+  document.getElementById('Descriptions')
 );
