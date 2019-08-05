@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { saveSchema } = require('./save');
 
-mongoose.connect('mongodb://database/itemDescription', {useNewUrlParser: true});
+mongoose.connect('mongodb://database:27017/itemDescription', {useNewUrlParser: true});
 
 const db = mongoose.connection;
 

@@ -193,7 +193,7 @@ const saveSchema = async () => {
 
 const allItemDescriptions = (id, callback) => {
 
-  mongoose.connect('mongodb://database/itemDescription', { useNewUrlParser: true });
+  mongoose.connect('mongodb://database:27017/itemDescription', { useNewUrlParser: true });
 
   Description
   .find( { id: id } )
