@@ -25,7 +25,8 @@ In your terminal,
 - [ ] Run Jest testing for MongoDB connection && success of seeding MongoDB `npm test`
 
 ## Deployment
-To be added later.
+- [ ] Navigate to `http://ec2-54-193-122-43.us-west-1.compute.amazonaws.com/(insert 1-100 here)`
+- i.e. `http://ec2-54-193-122-43.us-west-1.compute.amazonaws.com/3/`
 
 ## Built With
 - React
